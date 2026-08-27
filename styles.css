@@ -204,8 +204,8 @@ a.project-row:hover .row-arrow, .article-row:hover .row-arrow { color: var(--blu
 
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(16rem, .75fr) minmax(24rem, 1.25fr);
-  gap: clamp(3rem, 8vw, 8rem);
+  grid-template-columns: minmax(18rem, 1fr) minmax(24rem, 32rem);
+  gap: clamp(3rem, 5vw, 5rem);
 }
 
 .experience-list {
