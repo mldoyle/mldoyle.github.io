@@ -208,6 +208,12 @@ a.project-row:hover .row-arrow, .article-row:hover .row-arrow { color: var(--blu
   gap: clamp(3rem, 8vw, 8rem);
 }
 
+.experience-list {
+  width: 100%;
+  max-width: 32rem;
+  justify-self: end;
+}
+
 .about-copy > p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.3rem, 2vw, 1.75rem); line-height: 1.4; }
 .about-links { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 2rem; }
 
@@ -253,6 +259,7 @@ footer > p { grid-column: 1 / -1; margin: 1.5rem 0 0; padding-top: 1.25rem; bord
   .article-date, .article-title, .article-summary { grid-column: 1; }
   .article-row .row-arrow { grid-column: 2; grid-row: 1 / span 3; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .experience-list { max-width: none; }
   footer { grid-template-columns: 1fr; gap: 2rem; padding: 3.5rem 1.25rem; }
   footer > p { grid-column: 1; }
 }
