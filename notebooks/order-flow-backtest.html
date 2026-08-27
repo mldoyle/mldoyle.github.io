@@ -7817,12 +7817,14 @@ a.anchor-link {
   .jp-Notebook .jp-Cell { margin: 0 0 2rem; padding: 0; }
   .jp-Notebook .jp-MarkdownCell { margin: 0 0 4rem; }
   .jp-MarkdownOutput { color: var(--ink); font-family: Arial, Helvetica, sans-serif; font-size: 1.03rem; line-height: 1.75; }
-  .jp-MarkdownOutput h2 { margin: 0 0 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); font: 400 clamp(2.4rem, 5vw, 4.5rem)/1 Georgia, "Times New Roman", serif; letter-spacing: -.045em; }
+  .jp-MarkdownOutput h2 { margin: 3.5rem 0 1.5rem; padding-top: 0; border-top: 0; font: 400 clamp(2.4rem, 5vw, 4.5rem)/1 Georgia, "Times New Roman", serif; letter-spacing: -.045em; }
+  .jp-MarkdownOutput h2:first-child { margin-top: 0; }
   .jp-MarkdownOutput p { margin: 0 0 1.25rem; }
   .jp-MarkdownOutput a { color: var(--blue); text-underline-offset: .2rem; }
   .jp-MarkdownOutput mjx-container { overflow-x: auto; overflow-y: hidden; padding-block: .5rem; }
   .jp-CodeCell { margin: 0 0 2.5rem !important; }
-  .jp-Cell-inputWrapper { overflow: hidden; border: 1px solid var(--line); border-radius: 0; }
+  .jp-CodeCell .jp-Cell-inputWrapper { overflow: hidden; border: 1px solid var(--line); border-radius: 0; }
+  .jp-MarkdownCell .jp-Cell-inputWrapper { overflow: visible; border: 0; }
   .jp-InputArea-editor, .highlight { background: #e7e4dc !important; }
   .jp-InputArea pre { padding: 1rem !important; font-size: .78rem !important; line-height: 1.55 !important; }
   .hide-code .jp-CodeCell .jp-Cell-inputWrapper { display: none; }
