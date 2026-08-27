@@ -3,11 +3,11 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Institutional Order-Flow Equity Strategy — Matthew Doyle</title>
-<meta content="A research notebook covering the thesis, risk model, signal, portfolio construction, and backtest for a dollar-neutral equity strategy." name="description"/>
+<title>Institutional Order Flow Imblanace — Matthew Doyle</title>
+<meta content="A long-short equity strategy covering testing: 13.9% ANR, 1.61 Sharpe and 6.1% maximum drawdown. (signal research, risk modeling, portfolio optimization)" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="Institutional Order-Flow Equity Strategy — Matthew Doyle" property="og:title"/>
-<meta content="A research notebook covering the thesis, signal, factor hedging, portfolio construction, and backtest." property="og:description"/>
+<meta content="Institutional Order Flow Imblanace — Matthew Doyle" property="og:title"/>
+<meta content="A long-short equity strategy covering testing: 13.9% ANR, 1.61 Sharpe and 6.1% maximum drawdown. (signal research, risk modeling, portfolio optimization)" property="og:description"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
@@ -7800,19 +7800,22 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration -->
 <style>
-  :root { --paper: #f2f0e9; --ink: #101214; --muted: #666861; --line: #c9c6bc; --acid: #d8ff36; --blue: #2457ff; }
+  :root { --paper: #f4f3ee; --ink: #17191b; --muted: #696b67; --line: #cccbc4; --blue: #2457ff; --max: 1180px; }
   body.jp-Notebook { margin: 0; background: var(--paper); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
-  .notebook-nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; min-height: 64px; padding: 0 max(1.25rem, calc((100vw - 1180px) / 2)); border-bottom: 1px solid var(--line); background: rgba(242,240,233,.94); backdrop-filter: blur(12px); }
-  .notebook-nav a { color: var(--ink); font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
+  .notebook-nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; min-height: 64px; padding: 0 max(1.5rem, calc((100vw - var(--max)) / 2)); border-bottom: 1px solid var(--line); background: rgba(244,243,238,.94); backdrop-filter: blur(10px); }
+  .notebook-nav a { color: var(--ink); font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
   .notebook-nav .brand { font-size: 1.15rem; letter-spacing: -.06em; text-transform: none; }
   .notebook-nav .brand span { color: var(--blue); }
-  .notebook-hero { padding: clamp(4rem, 9vw, 8rem) max(1.25rem, calc((100vw - 1180px) / 2)) 4rem; border-bottom: 1px solid var(--line); }
-  .notebook-kicker { margin: 0 0 2rem; color: var(--blue); font: 700 .7rem/1.2 "SFMono-Regular", Consolas, monospace; letter-spacing: .1em; text-transform: uppercase; }
-  .notebook-hero h1 { max-width: 14ch; margin: 0; font: 400 clamp(3.2rem, 7vw, 7.5rem)/.94 Georgia, "Times New Roman", serif; letter-spacing: -.065em; }
-  .notebook-summary { max-width: 52rem; margin: 2.5rem 0; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.25rem); line-height: 1.6; }
-  .notebook-controls { display: flex; flex-wrap: wrap; gap: .75rem; }
-  .notebook-controls button, .notebook-controls a { min-height: 44px; padding: .8rem 1rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; font: 800 .66rem/1 Arial, sans-serif; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
-  .notebook-controls button { background: var(--acid); }
+  .note-label { color: var(--muted); font: 400 .66rem/1.2 "SFMono-Regular", Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .notebook-hero { border-bottom: 1px solid var(--line); }
+  .notebook-hero-inner { width: min(100%, var(--max)); margin: 0 auto; padding: clamp(4rem, 8vw, 7rem) 1.5rem 2.5rem; }
+  .notebook-kicker { margin: 0 0 2.5rem; color: var(--blue); font: 700 .66rem/1.2 "SFMono-Regular", Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .notebook-hero h1 { max-width: 20ch; margin: 0; font: 400 clamp(3rem, 6vw, 4.75rem)/1 Georgia, "Times New Roman", serif; letter-spacing: -.05em; }
+  .notebook-summary { max-width: 43rem; margin: 1rem 0 2rem; color: var(--muted); font-size: 1.02rem; line-height: 1.6; }
+  .notebook-controls { display: flex; flex-wrap: wrap; gap: 1.5rem; max-width: 43rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  .notebook-controls button { box-sizing: border-box; display: inline-flex; align-items: center; min-height: 0; padding: 0; border: 0; background: transparent; color: var(--blue); cursor: pointer; font: 700 .7rem/1.2 Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+  .notebook-controls button:hover { color: var(--ink); }
+  .notebook-controls button:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
   main { width: min(100%, 920px); margin: 0 auto; padding: clamp(3rem, 7vw, 7rem) 1.25rem 8rem; }
   .jp-Notebook .jp-Cell { margin: 0 0 2rem; padding: 0; }
   .jp-Notebook .jp-MarkdownCell { margin: 0 0 4rem; }
@@ -7836,7 +7839,7 @@ a.anchor-link {
   .notebook-disclaimer { width: min(100%, 920px); margin: -4rem auto 5rem; padding: 0 1.25rem; color: var(--muted); font-size: .75rem; line-height: 1.5; }
   .notebook-footer { display: flex; justify-content: space-between; gap: 1.5rem; padding: 2rem max(1.25rem, calc((100vw - 1180px) / 2)); border-top: 1px solid var(--line); color: var(--muted); font-size: .7rem; text-transform: uppercase; }
   .notebook-footer a { color: var(--ink); }
-  @media (max-width: 640px) { .notebook-nav .note-label { display: none; } .notebook-hero h1 { font-size: clamp(3rem, 15vw, 5rem); } .notebook-footer { flex-direction: column; } }
+  @media (max-width: 640px) { .notebook-nav { padding-inline: 1.25rem; } .notebook-nav .note-label { display: none; } .notebook-hero-inner { padding: 3.5rem 1.25rem 2rem; } .notebook-hero h1 { font-size: clamp(2.8rem, 13vw, 4rem); } .notebook-footer { flex-direction: column; } }
 </style>
 </head>
 <body class="jp-Notebook hide-code" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
@@ -7846,15 +7849,16 @@ a.anchor-link {
   <a href="../index.html#work">← Back to work</a>
 </header>
 <section class="notebook-hero">
-  <p class="notebook-kicker">Quantitative research / Equity markets</p>
-  <h1>Institutional Order-Flow Equity Strategy</h1>
-  <p class="notebook-summary">A documented research path from market-microstructure thesis to engineered signal, statistical risk model, factor-neutral portfolio, and out-of-sample backtest.</p>
-  <div class="notebook-controls">
-    <button aria-pressed="false" id="code-toggle" type="button">Show code</button>
-    <a download href="order-flow-backtest.ipynb">Download .ipynb</a>
+  <div class="notebook-hero-inner">
+    <p class="notebook-kicker">Quantitative research / Equity markets</p>
+    <h1>Institutional Order Flow Imblanace</h1>
+    <p class="notebook-summary">A long-short equity strategy covering testing: 13.9% ANR, 1.61 Sharpe and 6.1% maximum drawdown. (signal research, risk modeling, portfolio optimization)</p>
+    <div class="notebook-controls">
+      <button aria-controls="notebook-content" aria-expanded="false" aria-pressed="false" id="code-toggle" type="button">Show code</button>
+    </div>
   </div>
 </section>
-<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=83226584">
+<main id="notebook-content"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=83226584">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8467,6 +8471,7 @@ mean_predicted_alpha_exposure 0.007371260705282728
     const codeIsHidden = document.body.classList.toggle('hide-code');
     codeToggle.textContent = codeIsHidden ? 'Show code' : 'Hide code';
     codeToggle.setAttribute('aria-pressed', String(!codeIsHidden));
+    codeToggle.setAttribute('aria-expanded', String(!codeIsHidden));
   });
 </script>
 </body>
