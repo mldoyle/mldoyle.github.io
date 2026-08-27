@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Matthew Doyle is a researcher and builder working across quantitative finance, artificial intelligence, and public policy.">
+  <meta name="description" content="Matthew Doyle — research, projects, and writing across markets, technology, and public policy.">
   <link rel="canonical" href="https://mldoyle.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Matthew Doyle — Research, code & writing">
-  <meta property="og:description" content="Quantitative research, coding projects, and essays on markets, technology, and public policy.">
+  <meta property="og:description" content="Research, coding projects, and essays on markets, technology, and public policy.">
   <meta property="og:url" content="https://mldoyle.github.io/">
   <meta property="og:image" content="https://mldoyle.github.io/assets/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Matthew Doyle — Research, code & writing">
-  <meta name="twitter:description" content="Quantitative research, coding projects, and essays on markets, technology, and public policy.">
+  <meta name="twitter:description" content="Research, coding projects, and essays on markets, technology, and public policy.">
   <meta name="twitter:image" content="https://mldoyle.github.io/assets/social-card.png">
-  <meta name="theme-color" content="#f2f0e9">
-  <title>Matthew Doyle — Researcher & Builder</title>
+  <meta name="theme-color" content="#f4f3ee">
+  <title>Matthew Doyle</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,87 +24,86 @@
   <header class="site-header">
     <a class="wordmark" href="#top" aria-label="Matthew Doyle, home">MD<span>.</span></a>
     <nav aria-label="Primary navigation">
-      <a href="#work">Work</a>
+      <a href="#work">Projects</a>
       <a href="#writing">Writing</a>
       <a href="#about">About</a>
       <a href="assets/matthew-doyle-resume.pdf">Résumé</a>
     </nav>
-    <a class="header-link" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+    <a class="header-link" href="mailto:matthew.doyle@icloud.com">Email <span aria-hidden="true">↗</span></a>
   </header>
 
   <main id="content">
     <section class="hero" id="top" aria-labelledby="intro-heading">
-      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Toronto, Canada</p>
-      <h1 id="intro-heading">I research how <em>markets move</em>, build systems to test ideas, and write about what I learn.</h1>
-      <div class="hero-footer">
-        <p>Matthew Doyle is a researcher and builder working across quantitative finance, artificial intelligence, and public policy.</p>
-        <a class="circle-link" href="#work" aria-label="Explore selected work"><span>Explore</span><b aria-hidden="true">↓</b></a>
+      <div>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Toronto, Canada</p>
+        <h1 id="intro-heading">Matthew Doyle</h1>
+        <p class="hero-description">Research, projects, and writing across markets, technology, and public policy.</p>
+      </div>
+      <div class="hero-links">
+        <a href="#work">Selected work ↓</a>
+        <a href="assets/matthew-doyle-resume.pdf">Résumé ↗</a>
       </div>
     </section>
 
-    <section class="work section-dark" id="work" aria-labelledby="work-heading">
-      <div class="section-intro">
-        <p class="section-number">01 / Selected work</p>
-        <h2 id="work-heading">Research that ends in something you can use.</h2>
-        <p class="section-deck">A selection of quantitative research, data products, and practical tools. The detailed notebook keeps the math, code, and results together.</p>
-      </div>
-
-      <article class="featured-project">
-        <a class="chart-frame" href="notebooks/order-flow-backtest.html" aria-label="Read the institutional order-flow strategy notebook">
-          <img src="assets/backtest-results.png" alt="Backtest chart showing gross and net portfolio wealth from 2024 to mid-2026" width="1026" height="458">
-          <span class="chart-note">Backtest / after estimated costs</span>
-        </a>
-        <div class="project-copy">
-          <div class="project-meta">
-            <span>Quantitative research</span>
-            <span>2026</span>
-          </div>
-          <h3>Institutional Order-Flow Equity Strategy</h3>
-          <p>A medium-horizon, dollar-neutral long-short strategy for S&amp;P 500 equities. The research moves from order-flow features through residual-return modelling, portfolio construction, factor hedging, and out-of-sample evaluation.</p>
-          <ul class="tag-list" aria-label="Technologies used">
-            <li>Python</li><li>XGBoost</li><li>PCA</li><li>DuckDB</li><li>IBKR</li>
-          </ul>
-          <div class="metrics" aria-label="Backtest summary metrics">
-            <div><strong>13.9%</strong><span>Annualized return</span></div>
-            <div><strong>1.61</strong><span>Sharpe ratio</span></div>
-            <div><strong>6.1%</strong><span>Maximum drawdown</span></div>
-          </div>
-          <div class="project-links">
-            <a class="button button-acid" href="notebooks/order-flow-backtest.html">Read the notebook <span aria-hidden="true">↗</span></a>
-            <a class="text-link" href="notebooks/order-flow-backtest.ipynb" download>Download .ipynb</a>
-          </div>
+    <section class="section" id="work" aria-labelledby="work-heading">
+      <div class="section-heading">
+        <p class="section-number">01</p>
+        <div>
+          <h2 id="work-heading">Projects</h2>
+          <p>Selected research, notebooks, and code.</p>
         </div>
-      </article>
-
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-index">02</div>
-          <div class="project-meta"><span>Data product</span><span>Python / Dash</span></div>
-          <h3>Education-to-Labour Market Crosswalk</h3>
-          <p>A data pipeline and dashboard that connects academic programs and enrolment data to Canadian labour-market classifications, job openings, income, and regional employment indicators.</p>
-          <a class="card-link" href="https://github.com/mldoyle/cip-enrolment-labour-crosswalk">View repository <span aria-hidden="true">↗</span></a>
-        </article>
-
-        <article class="project-card">
-          <div class="project-index">03</div>
-          <div class="project-meta"><span>Developer tool</span><span>Python / MCP</span></div>
-          <h3>Read-Only iCloud Email MCP</h3>
-          <p>A public HTTPS MCP server that lets Notion agents and other clients search and read iCloud Mail while preserving read state and preventing send, delete, move, or flag operations.</p>
-          <a class="card-link" href="https://github.com/mldoyle/icloud-email-https-mcp">View repository <span aria-hidden="true">↗</span></a>
-        </article>
       </div>
 
-      <aside class="ongoing-note">
-        <span>Ongoing</span>
-        <p>I’m also building a research and execution system for binary-option arbitrage across prediction markets and traditional venues.</p>
-      </aside>
+      <div class="project-list">
+        <a class="project-row" href="notebooks/order-flow-backtest.html">
+          <span class="row-number">01</span>
+          <div class="row-copy">
+            <h3>Institutional Order-Flow Equity Strategy</h3>
+            <p>A long-short equity strategy covering signal research, factor hedging, portfolio construction, and backtesting.</p>
+          </div>
+          <span class="row-meta">Notebook · Python</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <div class="project-row project-row-static">
+          <span class="row-number">02</span>
+          <div class="row-copy">
+            <h3>Prediction Market Binary Option Arbitrage</h3>
+            <p>Research and automated execution across prediction markets and traditional venues.</p>
+          </div>
+          <span class="row-meta">Ongoing · Python</span>
+          <span class="row-arrow" aria-hidden="true">—</span>
+        </div>
+
+        <a class="project-row" href="https://github.com/mldoyle/cip-enrolment-labour-crosswalk">
+          <span class="row-number">03</span>
+          <div class="row-copy">
+            <h3>Education-to-Labour Market Crosswalk</h3>
+            <p>A pipeline and dashboard connecting academic programs to Canadian labour-market data.</p>
+          </div>
+          <span class="row-meta">Repository · Python</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="project-row" href="https://github.com/mldoyle/icloud-email-https-mcp">
+          <span class="row-number">04</span>
+          <div class="row-copy">
+            <h3>Read-Only iCloud Email MCP</h3>
+            <p>An HTTPS MCP server for safely searching and reading iCloud Mail from agent clients.</p>
+          </div>
+          <span class="row-meta">Repository · Python</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
     </section>
 
-    <section class="writing" id="writing" aria-labelledby="writing-heading">
-      <div class="section-intro writing-intro">
-        <p class="section-number">02 / Writing</p>
-        <h2 id="writing-heading">Notes from before the singularity.</h2>
-        <p class="section-deck">Essays on artificial intelligence, education, infrastructure, and the strange overlap between technical systems and human institutions.</p>
+    <section class="section section-soft" id="writing" aria-labelledby="writing-heading">
+      <div class="section-heading">
+        <p class="section-number">02</p>
+        <div>
+          <h2 id="writing-heading">Writing</h2>
+          <p>Essays on artificial intelligence, education, and technology.</p>
+        </div>
       </div>
 
       <div class="article-list">
@@ -112,66 +111,63 @@
           <span class="article-date">Feb 2026</span>
           <span class="article-title">AI and search</span>
           <span class="article-summary">How a Canadian company is making all the world’s data searchable.</span>
-          <span class="article-arrow" aria-hidden="true">↗</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
         </a>
         <a class="article-row" href="https://presingularity.substack.com/p/why-llms-dont-unlock-2-sigma">
           <span class="article-date">Dec 2025</span>
           <span class="article-title">Why LLMs don’t unlock 2-sigma</span>
-          <span class="article-summary">Why personal tutoring is a kind of education that AI is unlikely to replicate soon.</span>
-          <span class="article-arrow" aria-hidden="true">↗</span>
+          <span class="article-summary">Why personal tutoring is difficult to replicate with AI.</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
         </a>
         <a class="article-row" href="https://presingularity.substack.com/p/slime-mould-and-how-we-taught-rocks">
           <span class="article-date">Jun 2025</span>
           <span class="article-title">Slime mould and how we taught rocks to think</span>
-          <span class="article-summary">Intelligence as the computational part of achieving goals in the world.</span>
-          <span class="article-arrow" aria-hidden="true">↗</span>
+          <span class="article-summary">Intelligence as the computational part of achieving goals.</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
         </a>
       </div>
 
-      <a class="button button-dark" href="https://presingularity.substack.com">Read all on Substack <span aria-hidden="true">↗</span></a>
+      <a class="plain-link" href="https://presingularity.substack.com">All writing on Substack ↗</a>
     </section>
 
-    <section class="about" id="about" aria-labelledby="about-heading">
-      <div class="about-heading">
-        <p class="section-number">03 / About</p>
-        <h2 id="about-heading">A generalist with a quantitative toolkit.</h2>
-      </div>
-
-      <div class="about-copy">
-        <p class="lead">I’m interested in problems where markets, technology, and public institutions meet. My work combines quantitative research and software building with a background in philosophy, policy, and early-stage ventures.</p>
-        <p>Most recently, I sourced and evaluated university-born technology companies at the University of Toronto’s Entrepreneurship Hatchery. Before that, I worked in higher-education strategy and led student advocacy organizations in Nova Scotia.</p>
-        <div class="resume-actions">
-          <a class="button button-blue" href="assets/matthew-doyle-resume.pdf">View résumé <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="assets/matthew-doyle-resume.pdf" download>Download PDF</a>
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="section-heading">
+        <p class="section-number">03</p>
+        <div>
+          <h2 id="about-heading">About</h2>
         </div>
       </div>
 
-      <div class="experience-list" aria-label="Selected experience and education">
-        <div class="experience-row"><span>2025—2026</span><strong>Venture Associate</strong><p>The Entrepreneurship Hatchery, University of Toronto</p></div>
-        <div class="experience-row"><span>2024—2025</span><strong>Research Analyst</strong><p>Higher Education Strategy Associates</p></div>
-        <div class="experience-row"><span>2023—2024</span><strong>Board Chair / Vice President</strong><p>Students Nova Scotia / StFX Students’ Union</p></div>
-        <div class="experience-row"><span>2019—2024</span><strong>BA, Philosophy</strong><p>St. Francis Xavier University — First Class Honours with Distinction</p></div>
-      </div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>I work across quantitative research, software, public policy, and early-stage ventures. My background is in philosophy and higher-education policy, and my current projects focus on markets and applied machine learning.</p>
+          <div class="about-links">
+            <a href="assets/matthew-doyle-resume.pdf">View résumé ↗</a>
+            <a href="assets/matthew-doyle-resume.pdf" download>Download PDF</a>
+          </div>
+        </div>
 
-      <div class="skill-band">
-        <p>Python</p><p>Machine learning</p><p>Backtesting</p><p>Market data</p><p>Policy research</p><p>Financial analysis</p>
+        <div class="experience-list" aria-label="Selected experience and education">
+          <div class="experience-row"><span>2025—2026</span><div><strong>Venture Associate</strong><p>The Entrepreneurship Hatchery, University of Toronto</p></div></div>
+          <div class="experience-row"><span>2024—2025</span><div><strong>Research Analyst</strong><p>Higher Education Strategy Associates</p></div></div>
+          <div class="experience-row"><span>2023—2024</span><div><strong>Board Chair / Vice President</strong><p>Students Nova Scotia / StFX Students’ Union</p></div></div>
+          <div class="experience-row"><span>2019—2024</span><div><strong>BA, Philosophy</strong><p>St. Francis Xavier University</p></div></div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer id="contact">
-    <p class="section-number">04 / Contact</p>
-    <h2>Have an interesting problem?</h2>
-    <a class="email-link" href="mailto:matthew.doyle@icloud.com">matthew.doyle@icloud.com <span aria-hidden="true">↗</span></a>
-    <div class="footer-bottom">
-      <p>© 2026 Matthew Doyle</p>
-      <div class="social-links">
-        <a href="https://github.com/mldoyle">GitHub</a>
-        <a href="https://www.linkedin.com/in/matthewldoyle/">LinkedIn</a>
-        <a href="https://presingularity.substack.com">Substack</a>
-      </div>
-      <a href="#top">Back to top ↑</a>
+    <div>
+      <p class="section-number">Contact</p>
+      <a class="email-link" href="mailto:matthew.doyle@icloud.com">matthew.doyle@icloud.com</a>
     </div>
+    <div class="footer-links">
+      <a href="https://github.com/mldoyle">GitHub</a>
+      <a href="https://www.linkedin.com/in/matthewldoyle/">LinkedIn</a>
+      <a href="https://presingularity.substack.com">Substack</a>
+    </div>
+    <p>© 2026 Matthew Doyle</p>
   </footer>
 </body>
 </html>
