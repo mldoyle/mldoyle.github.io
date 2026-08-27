@@ -1,0 +1,68 @@
+name: Refresh backtest notebook
+
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-backtest-notebook
+  cancel-in-progress: false
+
+env:
+  HAS_SOURCE_REPO_TOKEN: ${{ secrets.LAPLACE_DEMON_READ_TOKEN != '' }}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Explain missing private-repository access
+        if: env.HAS_SOURCE_REPO_TOKEN != 'true'
+        run: echo "Add the LAPLACE_DEMON_READ_TOKEN repository secret to enable notebook syncing."
+
+      - name: Check out the website
+        if: env.HAS_SOURCE_REPO_TOKEN == 'true'
+        uses: actions/checkout@v4
+
+      - name: Check out the project notebook
+        if: env.HAS_SOURCE_REPO_TOKEN == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: mldoyle/laplace-demon
+          ref: production
+          token: ${{ secrets.LAPLACE_DEMON_READ_TOKEN }}
+          path: source-project
+          persist-credentials: false
+
+      - name: Set up Python
+        if: env.HAS_SOURCE_REPO_TOKEN == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install the notebook renderer
+        if: env.HAS_SOURCE_REPO_TOKEN == 'true'
+        run: python -m pip install nbconvert==7.17.1
+
+      - name: Render the project notebook
+        if: env.HAS_SOURCE_REPO_TOKEN == 'true'
+        run: |
+          cp source-project/src/notebooks/backtest.ipynb notebooks/order-flow-backtest.ipynb
+          python scripts/build_notebook.py
+
+      - name: Publish any notebook changes
+        if: env.HAS_SOURCE_REPO_TOKEN == 'true'
+        run: |
+          if git diff --quiet -- notebooks/order-flow-backtest.ipynb notebooks/order-flow-backtest.html; then
+            echo "The published notebook is already current."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add notebooks/order-flow-backtest.ipynb notebooks/order-flow-backtest.html
+          git commit -m "Refresh backtest notebook"
+          git push

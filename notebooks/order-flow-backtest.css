@@ -1,0 +1,278 @@
+:root {
+  --paper: #f4f3ee;
+  --ink: #17191b;
+  --muted: #696b67;
+  --line: #cccbc4;
+  --blue: #2457ff;
+  --max: 1180px;
+}
+
+body.jp-Notebook {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.notebook-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding: 0 max(1.5rem, calc((100vw - var(--max)) / 2));
+  border-bottom: 1px solid var(--line);
+  background: rgba(244, 243, 238, .94);
+  backdrop-filter: blur(10px);
+}
+
+.notebook-nav a {
+  color: var(--ink);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.notebook-nav .brand {
+  font-size: 1.15rem;
+  letter-spacing: -.06em;
+  text-transform: none;
+}
+
+.notebook-nav .brand span,
+.notebook-controls button,
+.jp-MarkdownOutput a {
+  color: var(--blue);
+}
+
+.note-label {
+  color: var(--muted);
+  font: 400 .66rem/1.2 "SFMono-Regular", Consolas, monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.notebook-hero {
+  border-bottom: 1px solid var(--line);
+}
+
+.notebook-hero-inner {
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding: clamp(4rem, 8vw, 7rem) 1.5rem 2.5rem;
+}
+
+.notebook-kicker {
+  margin: 0 0 2.5rem;
+  color: var(--blue);
+  font: 700 .66rem/1.2 "SFMono-Regular", Consolas, monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.notebook-hero h1 {
+  max-width: 20ch;
+  margin: 0;
+  font: 400 clamp(3rem, 6vw, 4.75rem)/1 Georgia, "Times New Roman", serif;
+  letter-spacing: -.05em;
+}
+
+.notebook-summary {
+  max-width: 43rem;
+  margin: 1rem 0 2rem;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.notebook-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  max-width: 43rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.notebook-controls button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: 700 .7rem/1.2 Arial, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.notebook-controls button:hover {
+  color: var(--ink);
+}
+
+.notebook-controls button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+main {
+  width: min(100%, 920px);
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 7rem) 1.25rem 8rem;
+}
+
+.jp-Notebook .jp-Cell {
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.jp-Notebook .jp-MarkdownCell {
+  margin: 0 0 4rem;
+}
+
+.jp-MarkdownOutput {
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.03rem;
+  line-height: 1.75;
+}
+
+.jp-MarkdownOutput h2 {
+  margin: 3.5rem 0 1.5rem;
+  padding-top: 0;
+  border-top: 0;
+  font: 400 clamp(2.4rem, 5vw, 4.5rem)/1 Georgia, "Times New Roman", serif;
+  letter-spacing: -.045em;
+}
+
+.jp-MarkdownOutput h2:first-child {
+  margin-top: 0;
+}
+
+.jp-MarkdownOutput p {
+  margin: 0 0 1.25rem;
+}
+
+.jp-MarkdownOutput a {
+  text-underline-offset: .2rem;
+}
+
+.jp-MarkdownOutput mjx-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: .5rem;
+}
+
+.jp-CodeCell {
+  margin: 0 0 2.5rem !important;
+}
+
+.jp-CodeCell .jp-Cell-inputWrapper {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 0;
+}
+
+.jp-MarkdownCell .jp-Cell-inputWrapper {
+  overflow: visible;
+  border: 0;
+}
+
+.jp-InputArea-editor,
+.highlight {
+  background: #e7e4dc !important;
+}
+
+.jp-InputArea pre {
+  padding: 1rem !important;
+  font-size: .78rem !important;
+  line-height: 1.55 !important;
+}
+
+.hide-code .jp-CodeCell .jp-Cell-inputWrapper {
+  display: none;
+}
+
+.jp-OutputArea {
+  margin-top: 1rem;
+}
+
+.jp-OutputArea img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.jp-OutputArea-output pre {
+  padding: 1rem;
+  background: #e7e4dc;
+  color: var(--ink);
+  font-size: .78rem;
+  white-space: pre-wrap;
+}
+
+.jp-RenderedHTMLCommon table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td {
+  padding: .65rem;
+  border: 1px solid var(--line);
+}
+
+.notebook-disclaimer {
+  width: min(100%, 920px);
+  margin: -4rem auto 5rem;
+  padding: 0 1.25rem;
+  color: var(--muted);
+  font-size: .75rem;
+  line-height: 1.5;
+}
+
+.notebook-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem max(1.25rem, calc((100vw - 1180px) / 2));
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .7rem;
+  text-transform: uppercase;
+}
+
+.notebook-footer a {
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .notebook-nav {
+    padding-inline: 1.25rem;
+  }
+
+  .notebook-nav .note-label {
+    display: none;
+  }
+
+  .notebook-hero-inner {
+    padding: 3.5rem 1.25rem 2rem;
+  }
+
+  .notebook-hero h1 {
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+
+  .notebook-footer {
+    flex-direction: column;
+  }
+}
