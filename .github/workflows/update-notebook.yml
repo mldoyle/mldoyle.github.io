@@ -32,7 +32,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: mldoyle/laplace-demon
-          ref: production
+          # Keep the public notebook pinned to the reviewed research snapshot.
+          # Advance this SHA explicitly after later branch changes are reviewed.
+          ref: 98d753d10adc547bfb63efdfdceb04ebc5d83794
           token: ${{ secrets.LAPLACE_DEMON_READ_TOKEN }}
           path: source-project
           persist-credentials: false
