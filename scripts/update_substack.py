@@ -100,7 +100,7 @@ def render_row(post: Post) -> str:
             f'          <span class="article-date">{escape(post.date)}</span>',
             f'          <span class="article-title">{escape(post.title)}</span>',
             f'          <span class="article-summary">{escape(post.summary)}</span>',
-            '          <span class="row-arrow" aria-hidden="true">↗</span>',
+            '          <span class="row-arrow" aria-hidden="true">↗︎</span>',
             "        </a>",
         )
     )

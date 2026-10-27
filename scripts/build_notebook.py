@@ -21,7 +21,7 @@ PAGE_DESCRIPTION = (
 PAGE_HEADER = """<header class="notebook-nav">
   <a class="brand" href="../index.html">MD<span>.</span></a>
   <span class="note-label">Research notebook / 2026</span>
-  <a href="../index.html#work">← Back to work</a>
+  <a href="../index.html#work">←︎ Back to work</a>
 </header>
 <section class="notebook-hero">
   <div class="notebook-hero-inner">

@@ -178,6 +178,8 @@ h1 {
   transition: padding .18s ease, background .18s ease;
 }
 
+.project-list { margin-bottom: 2rem; }
+
 a.project-row:hover { padding-inline: .8rem; background: rgba(255,255,255,.45); }
 .row-copy h3 { margin: 0 0 .45rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; font-weight: 400; letter-spacing: -.02em; }
 .row-copy p { max-width: 43rem; margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.5; }
@@ -241,7 +243,7 @@ footer {
 }
 
 footer .section-number { margin-bottom: .7rem; color: #a9aaa6; }
-.email-link { font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.2rem, 2vw, 1.6rem); text-underline-offset: .25rem; }
+.email-link { font-family: Georgia, "Times New Roman", serif; font-size: clamp(0.95rem, 1.4vw, 1.2rem);; text-underline-offset: .25rem; }
 .footer-links { display: flex; gap: 1.25rem; }
 footer > p { grid-column: 1 / -1; margin: 1.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid #383b3d; color: #a9aaa6; font-size: .65rem; }
 
