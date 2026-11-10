@@ -12,10 +12,11 @@ import nbformat
 from nbconvert import HTMLExporter
 
 
-PAGE_TITLE = "Institutional Order Flow Imblanace — Matthew Doyle"
+PAGE_TITLE = "Institutional Order Flow Imbalance — Matthew Doyle"
 PAGE_DESCRIPTION = (
-    "A long-short equity strategy covering testing: 13.9% ANR, 1.61 Sharpe and "
-    "6.1% maximum drawdown. (signal research, risk modeling, portfolio optimization)"
+    "A long-short equity strategy with a backtest through October 23, 2026: "
+    "14.8% annualized return, 1.70 Sharpe and 5.9% maximum drawdown "
+    "after the modeled 5 bps transaction costs."
 )
 
 PAGE_HEADER = """<header class="notebook-nav">
@@ -26,8 +27,8 @@ PAGE_HEADER = """<header class="notebook-nav">
 <section class="notebook-hero">
   <div class="notebook-hero-inner">
     <p class="notebook-kicker">Quantitative research / Equity markets</p>
-    <h1>Institutional Order Flow Imblanace</h1>
-    <p class="notebook-summary">A long-short equity strategy covering testing: 13.9% ANR, 1.61 Sharpe and 6.1% maximum drawdown. (signal research, risk modeling, portfolio optimization)</p>
+    <h1>Institutional Order Flow Imbalance</h1>
+    <p class="notebook-summary">A long-short equity strategy with a backtest through October 23, 2026: 14.8% annualized return, 1.70 Sharpe and 5.9% maximum drawdown after the modeled 5 bps transaction costs.</p>
     <div class="notebook-controls">
       <button aria-controls="notebook-content" aria-expanded="false" aria-pressed="false" id="code-toggle" type="button">Show code</button>
     </div>
@@ -105,7 +106,7 @@ def render(source: Path) -> str:
     if footer_count != 1:
         raise RuntimeError("Could not add the portfolio footer to the generated notebook.")
 
-    return document
+    return re.sub(r"[ \t]+$", "", document, flags=re.MULTILINE)
 
 
 def main() -> None:

@@ -1,9 +1,12 @@
 name: Refresh backtest notebook
 
 on:
-  schedule:
-    - cron: "23 * * * *"
   workflow_dispatch:
+    inputs:
+      source_ref:
+        description: "Reviewed laplace-demon commit SHA to publish"
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -32,9 +35,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: mldoyle/laplace-demon
-          # Keep the public notebook pinned to the reviewed research snapshot.
-          # Advance this SHA explicitly after later branch changes are reviewed.
-          ref: 98d753d10adc547bfb63efdfdceb04ebc5d83794
+          # Local notebook snapshots can be newer than the source repository.
+          # Require an explicit selection so an older snapshot cannot auto-publish.
+          ref: ${{ inputs.source_ref }}
           token: ${{ secrets.LAPLACE_DEMON_READ_TOKEN }}
           path: source-project
           persist-credentials: false
