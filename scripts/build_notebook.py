@@ -53,6 +53,10 @@ PAGE_FOOTER = """<p class="notebook-disclaimer">This is a research notebook, not
 
 def render(source: Path) -> str:
     notebook = nbformat.read(source, as_version=4)
+    # Omit the scratch portfolio-weight inspection from the public page.
+    notebook.cells = [
+        cell for cell in notebook.cells if cell.get("id") != "7bb59dcc"
+    ]
     exporter = HTMLExporter(template_name="lab")
     document, _ = exporter.from_notebook_node(
         notebook,
